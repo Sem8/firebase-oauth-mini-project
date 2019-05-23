@@ -1,12 +1,13 @@
 const userRoute = require("express").Router();
 const userdb = require("../data/dbConfig.js");
 const User = require("../data/helpers/users.js");
+const restricted = require('../middleware/firebase');
 
 // userRoute.get('/', (req, res) => {
 //     res.send('User route here');
 // });
 
-userRoute.post("/", (req, res) => {
+userRoute.post("/", restricted, (req, res) => {
   const { fullName, email, password, profilePhoto } = req.body;
   const firebase_id = req.user;
   User.registerOrLogin({
@@ -15,7 +16,7 @@ userRoute.post("/", (req, res) => {
     name,
     email,
     password,
-    profilePhoto
+    // profilePhoto
   })
     .then(user => {
       res.status(200).json(user);
