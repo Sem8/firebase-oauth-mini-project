@@ -8,15 +8,13 @@ const restricted = require('../middleware/firebase');
 // });
 
 userRoute.post("/", restricted, (req, res) => {
-  const { fullName, email, password, profilePhoto } = req.body;
+  const { fullName, email, profilePhoto } = req.body;
   const firebase_id = req.user;
   User.registerOrLogin({
     firebase_id,
     fullName,
-    name,
     email,
-    password,
-    // profilePhoto
+    profilePhoto
   })
     .then(user => {
       res.status(200).json(user);

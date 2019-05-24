@@ -17,7 +17,7 @@ class SingIn extends Component {
         const fbUser = {
           email: user.email,
           firebase_id: user.uid,
-          name: "TBD"
+          fullName: "TBD"
         };
         this.props.onAuthUser(fbUser);
       })
@@ -35,7 +35,7 @@ class SingIn extends Component {
         const fbUser = {
           email: user.email,
           firebase_id: user.uid,
-          name: "TBD"
+          fullName: "TBD"
         };
         this.props.onAuthUser(fbUser);
       })

@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable("users", usersTbl => {
       usersTbl.increments();
-      usersTbl.string("password").notNullable();
+
       usersTbl
         .string("firebase_id", 500)
         // .notNullable()
